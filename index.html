@@ -117,14 +117,26 @@
 
       <div class="h-96">
         <!-- Recherche -->
-        <div
-          class="bg-slate-300 w-1/4 flex items-center justify-between rounded-l-3xl rounded-r-xl py-2 absolute right-0 mr-28"
-        >
-          <span class="pl-5 text-lg tracking-wider">Search</span>
-          <div class="w-[1.6rem] mr-2">
-            <img src="img/loop.svg" alt="loop logo" />
+        <form action="">
+          <div
+            class="bg-slate-300 w-1/4 flex items-center justify-between rounded-l-3xl rounded-r-xl absolute right-0 mr-28"
+          >
+            <input
+              class="pl-5 w-full text-lg bg-slate-300 rounded-l-3xl py-2 rounded-r-xl"
+              placeholder="Search"
+            />
+
+            <div class="w-[1.6rem] mr-3 absolute right-0">
+              <button type="submit">
+                <img
+                  src="img/loop.svg"
+                  alt="loop logo"
+                  class="cursor-pointer"
+                />
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
         <!-- end Recherche -->
         <div class="flex justify-between pt-14">
           <div class="flex flex-col items-center w-1/3">
