@@ -13,7 +13,10 @@
     <script src="script.js"></script>
     <title>Coupon Free</title>
   </head>
-  <body style="font-family: 'Roboto Condensed', sans-serif" class="relative">
+  <body
+    style="font-family: 'Roboto Condensed', sans-serif"
+    class="relative bg-stone-100"
+  >
     <!-- MODAL WINDOW -->
     <div class="z-10 bg-black/70 w-full h-[100%]" id="hijab"></div>
     <div
@@ -89,6 +92,48 @@
       </div>
     </div>
 
+    <!-- MODAL WINDOW COUPON CODE -->
+    <div
+      class="w-[40rem] h-[30rem] top-[50%] left-[50%] bg-white absolute z-20 drop-shadow-md rounded-md translate-x-[-50%] translate-y-[30%] flex-col items-center hidden"
+      id="modal2"
+    >
+      <div class="w-[1.6rem] h-[1.6rem] ml-auto m-3 mr-4 cursor-pointer">
+        <img
+          src="img/exit2.svg"
+          alt="close icone"
+          class="w-full h-full object-contain"
+          id="exit2"
+        />
+      </div>
+      <div class="w-[10rem] h-[6rem]">
+        <img src="img/logo-2.png" alt="" class="w-full h-full object-contain" />
+      </div>
+      <h1 class="text-gray-900 uppercase text-lg font-bold pt-6">Adidas</h1>
+      <span class="text-2xl pt-2 font-semibold px-32">15% of your order</span>
+      <span class="pt-5">ends in 10/10/10</span>
+      <div
+        class="border border-black mt-6 w-1/2 py-2 px-3 rounded-lg relative mb-2 drop-shadow-lg"
+      >
+        <span class="text-xl font-bold pl-6" id="textCopy">6X90902289</span>
+        <div
+          class="h-full w-1/2 bg-pink-500 rounded-r-lg rounded-l-3xl absolute z-50 top-0 right-0 flex justify-center items-center drop-shadow-lg cursor-pointer"
+          id="copy"
+        >
+          <span class="text-white text-xl font-bold ml-auto pl-4">Copy</span>
+          <div class="h-[2rem] w-[2rem] ml-auto drop-shadow-lg cursor-pointer">
+            <img
+              src="img/copy.svg"
+              alt="copy icon"
+              class="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+      <p>
+        Copy and paste this code at <span class="text-pink-500">lenovo</span>
+      </p>
+    </div>
+
     <header class="px-28">
       <nav
         class="flex justify-between py-10 items-stretch capitalize font-bold text-xl tracking-wider"
@@ -110,19 +155,22 @@
             >
           </li>
         </ul>
-        <div class="text-pink-500 cursor-pointer" id="openModal">
+        <div
+          class="text-pink-500 cursor-pointer hover:text-black transition-all duration-300"
+          id="openModal"
+        >
           Newsletter
         </div>
       </nav>
 
       <div class="h-96">
         <!-- Recherche -->
-        <form action="submit">
+        <form action="">
           <div
-            class="bg-slate-300 w-1/4 flex items-center justify-between rounded-l-3xl rounded-r-xl absolute right-0 mr-28"
+            class="bg-white w-1/4 flex items-center justify-between rounded-l-3xl rounded-r-xl absolute right-0 mr-28 drop-shadow-md"
           >
             <input
-              class="pl-5 w-full text-lg bg-slate-300 rounded-l-3xl py-2 rounded-r-xl"
+              class="pl-5 w-full text-lg bg-white rounded-l-3xl py-2 rounded-r-xl"
               placeholder="Search"
             />
 
@@ -141,7 +189,7 @@
         <div class="flex justify-between pt-14">
           <div class="flex flex-col items-center w-1/3">
             <h1
-              class="text-7xl font-bold w-56 text-center tracking-wide text-slate-800 py-8"
+              class="text-7xl font-bold w-56 text-center tracking-wide text-slate-700 py-8"
             >
               Save Money Shop Smart
             </h1>
@@ -270,7 +318,7 @@
 
       <div class="flex flex-wrap pt-20 gap-3 justify-center cursor-pointer">
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -284,7 +332,8 @@
           </div>
         </div>
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          id="showCoupon"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -298,7 +347,7 @@
           </div>
         </div>
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full flex bg-white gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -312,7 +361,7 @@
           </div>
         </div>
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -326,7 +375,7 @@
           </div>
         </div>
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -340,7 +389,7 @@
           </div>
         </div>
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -354,7 +403,7 @@
           </div>
         </div>
         <div
-          class="border h-full flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
@@ -369,7 +418,7 @@
         </div>
       </div>
     </section>
-    <footer class="bg-pink-600 w-full h-32 mt-10 text-white">
+    <footer class="bg-pink-400 w-full h-32 mt-10 text-white">
       <ul class="flex gap-2 text-sm justify-center pt-14 pb-1">
         <li><a href="">About us</a></li>
         <li><a href="">Privacy policy</a></li>
