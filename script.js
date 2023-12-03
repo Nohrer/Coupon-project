@@ -72,5 +72,52 @@ document.addEventListener("DOMContentLoaded", function () {
   coupon.addEventListener("click", openModal2);
   hijab.addEventListener("click", closeModal2);
 
-  //MODAL PROMO CODE
+  //CARASOUL
+  const imageList = document.getElementById("imageList");
+  const leftButton = document.getElementById("leftButton");
+  const rightButton = document.getElementById("rightButton");
+
+  const itemsPerPage = 6;
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const start = currentIndex * (100 / itemsPerPage);
+    const end = start + 100;
+    const visibleItems = Array.from(imageList.children).slice(
+      currentIndex,
+      currentIndex + itemsPerPage
+    );
+
+    // Hide all items
+    Array.from(imageList.children).forEach((item) =>
+      item.classList.add("hidden")
+    );
+
+    // Show only visible items
+    visibleItems.forEach((item) => item.classList.remove("hidden"));
+  }
+
+  function showNext() {
+    currentIndex += 1;
+    if (currentIndex > imageList.children.length - itemsPerPage) {
+      currentIndex = 0;
+    }
+    updateCarousel();
+  }
+
+  function showPrevious() {
+    currentIndex -= 1;
+    if (currentIndex < 0) {
+      currentIndex = imageList.children.length - itemsPerPage;
+    }
+    updateCarousel();
+  }
+
+  // Initial setup
+  updateCarousel();
+
+  // Event listeners for navigation buttons
+  leftButton.addEventListener("click", showPrevious);
+  rightButton.addEventListener("click", showNext);
 });

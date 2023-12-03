@@ -10,6 +10,28 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      @keyframes slideAnimation {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .infinite-loop-container {
+        display: flex;
+        animation: slideAnimation 10s linear infinite; /* Adjust the duration as needed */
+      }
+
+      .infinite-loop-item {
+        width: 21rem;
+        height: 20rem;
+        margin-left: -1.5rem;
+        animation: inherit;
+      }
+    </style>
     <script src="script.js"></script>
     <title>Coupon Free</title>
   </head>
@@ -251,58 +273,92 @@
     </div>
 
     <!-- Carassol -->
-
-    <div class="flex gap-6 justify-center items-center">
-      <div class="w-[1rem] h-[1rem]">
+    <div
+      class="carousel overflow-hidden flex justify-center items-center relative"
+    >
+      <div
+        id="leftButton"
+        class="w-[1rem] h-[1rem] absolute left-20 cursor-pointer"
+      >
         <img
           src="img/left.svg"
           class="w-full h-full object-contain"
           alt="get best deals image"
         />
       </div>
-      <div class="w-[12rem] h-[6rem] border drop-shadow-sm">
-        <img
-          src="img/logo.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[12rem] h-[6rem] border drop-shadow-sm">
-        <img
-          src="img/logo.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[12rem] h-[6rem] border drop-shadow-sm">
-        <img
-          src="img/logo.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[12rem] h-[6rem] border drop-shadow-sm">
-        <img
-          src="img/logo.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[12rem] h-[6rem] border drop-shadow-sm">
-        <img
-          src="img/logo.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[12rem] h-[6rem] border drop-shadow-sm">
-        <img
-          src="img/logo.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[1rem] h-[1rem]">
+      <ul
+        class="flex gap-6 justify-center items-center"
+        style="transition: transform 0.5s ease-in-out"
+        id="imageList"
+      >
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm hidden">
+          <img
+            src="img/logo-2.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm">
+          <img
+            src="img/logo.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm">
+          <img
+            src="img/logo.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm">
+          <img
+            src="img/logo.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm">
+          <img
+            src="img/logo.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm">
+          <img
+            src="img/logo.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm">
+          <img
+            src="img/logo.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm hidden">
+          <img
+            src="img/logo-2.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+        <li class="w-[12rem] h-[6rem] border drop-shadow-sm hidden">
+          <img
+            src="img/logo-2.png"
+            class="w-full h-full object-contain"
+            alt="get best deals image"
+          />
+        </li>
+      </ul>
+      <div
+        id="rightButton"
+        class="w-[1rem] h-[1rem] absolute right-20 cursor-pointer"
+      >
         <img
           src="img/right.svg"
           class="w-full h-full object-contain"
@@ -310,7 +366,6 @@
         />
       </div>
     </div>
-
     <section class="py-24 px-28">
       <h2 class="text-center text-5xl font-bold tracking-wide text-pink-500">
         Today's Top Deals
