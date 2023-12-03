@@ -30,17 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //MODAL1 JAVASCRIPT
   function openModal() {
-    modal.classList.add("flex");
-    modal.classList.remove("hidden");
-    hijab.classList.add("absolute");
-    hijab.classList.remove("hidden");
+    modal.classList.remove("opacity-0", "pointer-events-none");
+    hijab.classList.remove("opacity-0", "pointer-events-none");
     document.body.classList.add("overflow-hidden");
   }
   function closeModal() {
-    modal.classList.remove("flex");
-    modal.classList.add("hidden");
-    hijab.classList.remove("absolute");
-    hijab.classList.add("hidden");
+    modal.classList.add("opacity-0", "pointer-events-none");
+    hijab.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
   }
 
@@ -52,18 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
   //MODAL 2
 
   function openModal2() {
-    modal2.classList.add("flex");
-    modal2.classList.remove("hidden");
-    hijab.classList.add("absolute");
-    hijab.classList.remove("hidden");
+    modal2.classList.remove("pointer-events-none", "opacity-0");
+    hijab.classList.remove("opacity-0", "pointer-events-none");
     document.body.classList.add("overflow-hidden");
   }
 
   function closeModal2() {
-    modal2.classList.remove("flex");
-    modal2.classList.add("hidden");
-    hijab.classList.remove("absolute");
-    hijab.classList.add("hidden");
+    modal2.classList.add("pointer-events-none", "opacity-0");
+    hijab.classList.add("opacity-0", "pointer-events-none");
+
     document.body.classList.remove("overflow-hidden");
   }
 

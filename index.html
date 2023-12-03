@@ -11,25 +11,20 @@
       rel="stylesheet"
     />
     <style>
-      @keyframes slideAnimation {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
+      .scroller {
+        height: 200px;
+        overflow: hidden;
       }
-
-      .infinite-loop-container {
+      .scroller_inner {
         display: flex;
-        animation: slideAnimation 10s linear infinite; /* Adjust the duration as needed */
-      }
 
-      .infinite-loop-item {
-        width: 21rem;
-        height: 20rem;
-        margin-left: -1.5rem;
-        animation: inherit;
+        animation: HorizontalScroll 20s infinite linear;
+        width: fit-content;
+      }
+      @keyframes HorizontalScroll {
+        to {
+          transform: translateX(-50%);
+        }
       }
     </style>
     <script src="script.js"></script>
@@ -40,9 +35,12 @@
     class="relative bg-stone-100"
   >
     <!-- MODAL WINDOW -->
-    <div class="z-10 bg-black/70 w-full h-[100%]" id="hijab"></div>
     <div
-      class="w-[40rem] h-[24rem] top[50%] left-[50%] bg-gray-900 z-20 absolute drop-shadow-md rounded-md hidden translate-x-[-50%] translate-y-[30%]"
+      class="fixed z-[1] inset-0 transition-all duration-500 ease-in-out bg-black/70 w-full opacity-0 pointer-events-none"
+      id="hijab"
+    ></div>
+    <div
+      class="w-[40rem] h-[24rem] top[50%] left-[50%] bg-gray-900 z-20 absolute drop-shadow-md flex rounded-md opacity-0 pointer-events-none translate-x-[-50%] translate-y-[30%] transition-all duration-500 ease-in-out"
       id="modal"
     >
       <div class="rounded-md relative">
@@ -116,7 +114,7 @@
 
     <!-- MODAL WINDOW COUPON CODE -->
     <div
-      class="w-[40rem] h-[30rem] fixed left-[50%] bg-white z-20 drop-shadow-md rounded-md translate-x-[-50%] translate-y-[30%] flex-col items-center hidden"
+      class="w-[40rem] h-[30rem] fixed left-[50%] bg-white z-20 drop-shadow-md rounded-md translate-x-[-50%] translate-y-[30%] flex-col items-center opacity-0 pointer-events-none transition-all duration-500 flex"
       id="modal2"
     >
       <div class="w-[1.6rem] h-[1.6rem] ml-auto m-3 mr-4 cursor-pointer">
@@ -233,45 +231,16 @@
     </header>
 
     <!-- Half Price save -->
-
-    <div class="flex pt-[10rem]">
-      <div class="w-[21rem] h-[20rem]">
-        <img
-          src="img/img1.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[21rem] h-[20rem] ml-[-1.5rem]">
-        <img
-          src="img/img1.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[21rem] h-[20rem] ml-[-1.5rem]">
-        <img
-          src="img/img1.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[21rem] h-[20rem] ml-[-1.5rem]">
-        <img
-          src="img/img1.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
-      <div class="w-[21rem] h-[20rem] ml-[-1.5rem]">
-        <img
-          src="img/img1.png"
-          class="w-full h-full object-contain"
-          alt="get best deals image"
-        />
-      </div>
+    <div class="scroller mt-32 mb-12">
+      <ul class="scroller_inner">
+        <li class="w-[125vw] shrink-0 h-[200px] relative">
+          <img src="img/save.png" class="w-full h-full object-contain" alt="" />
+        </li>
+        <li class="w-[125vw] shrink-0 h-[200px] relative">
+          <img src="img/save.png" class="w-full h-full object-contain" alt="" />
+        </li>
+      </ul>
     </div>
-
     <!-- Carassol -->
     <div
       class="carousel overflow-hidden flex justify-center items-center relative"
