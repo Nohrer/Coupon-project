@@ -1,3 +1,4 @@
+<?php include 'db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,19 +23,29 @@
         animation: HorizontalScroll 20s infinite linear;
         width: fit-content;
       }
+
       @keyframes HorizontalScroll {
         to {
           transform: translateX(-50%);
         }
       }
     </style>
-    <script src="script.js"></script>
     <title>Coupon Free</title>
   </head>
+
   <body
     style="font-family: 'Roboto Condensed', sans-serif"
     class="relative bg-stone-100"
   >
+    <!-- retrieving data -->
+    <?php
+  $sql1 = "SELECT nom_coupon FROM coupon";
+  $result = $conn->query($sql1); $couponNames = array(); if ($result->num_rows >
+    0) { while ($row = $result->fetch_assoc()) { $couponNames[] =
+    $row["nom_coupon"]; } } /* $sql2 = "SELECT logo FROM mark"; $result =
+    $conn->query($sql1); $couponLogos = array(); if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) { $couponLogos[] = $row["logo"]; } }
+    */ ?>
     <!-- MODAL WINDOW -->
     <div
       class="fixed z-[1] inset-0 transition-all duration-500 ease-in-out bg-black/70 w-full opacity-0 pointer-events-none"
@@ -117,43 +128,7 @@
     <div
       class="w-[40rem] h-[30rem] fixed left-[50%] bg-white z-20 drop-shadow-md rounded-md translate-x-[-50%] translate-y-[30%] flex-col items-center opacity-0 pointer-events-none transition-all duration-500 flex"
       id="modal2"
-    >
-      <div class="w-[1.6rem] h-[1.6rem] ml-auto m-3 mr-4 cursor-pointer">
-        <img
-          src="img/exit2.svg"
-          alt="close icone"
-          class="w-full h-full object-contain"
-          id="exit2"
-        />
-      </div>
-      <div class="w-[10rem] h-[6rem]">
-        <img src="img/logo-2.png" alt="" class="w-full h-full object-contain" />
-      </div>
-      <h1 class="text-gray-900 uppercase text-lg font-bold pt-6">Adidas</h1>
-      <span class="text-2xl pt-2 font-semibold px-32">15% of your order</span>
-      <span class="pt-5">ends in 10/10/10</span>
-      <div
-        class="border border-black mt-6 w-1/2 py-2 px-3 rounded-lg relative mb-2 drop-shadow-lg"
-      >
-        <span class="text-xl font-bold pl-6" id="textCopy">6X90902289</span>
-        <div
-          class="h-full w-1/2 bg-pink-500 rounded-r-lg rounded-l-3xl absolute z-50 top-0 right-0 flex justify-center items-center drop-shadow-lg cursor-pointer"
-          id="copy"
-        >
-          <span class="text-white text-xl font-bold ml-auto pl-4">Copy</span>
-          <div class="h-[2rem] w-[2rem] ml-auto drop-shadow-lg cursor-pointer">
-            <img
-              src="img/copy.svg"
-              alt="copy icon"
-              class="w-full h-full object-contain"
-            />
-          </div>
-        </div>
-      </div>
-      <p>
-        Copy and paste this code at <span class="text-pink-500">lenovo</span>
-      </p>
-    </div>
+    ></div>
 
     <header class="px-28">
       <nav
@@ -172,7 +147,7 @@
           </li>
           <li>
             <a
-              href="page2.html"
+              href="page2.php"
               class="hover:text-pink-700 transition-all duration-300"
               >Brands</a
             >
@@ -344,105 +319,26 @@
       </h2>
 
       <div class="flex flex-wrap pt-20 gap-3 justify-center cursor-pointer">
-        <div
+        <?php foreach ($couponNames as $coupon): ?>
+        <!-- loop through coupon -->
+        <button
           class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
+          onclick="openModal2('logo.png','<?php echo $coupon; ?>')"
         >
           <div class="w-[8rem] h-[8rem]">
             <img src="img/logo.png" class="w-full h-full object-contain" />
           </div>
           <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
+            <span class="font-semibold uppercase text-lg"
+              ><?php echo $coupon; ?></span
+            >
             <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
               type promo est les offre blablabla lore type promo est les offre
               blablabla lore
             </p>
           </div>
-        </div>
-        <div
-          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
-          id="showCoupon"
-        >
-          <div class="w-[8rem] h-[8rem]">
-            <img src="img/logo.png" class="w-full h-full object-contain" />
-          </div>
-          <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
-            <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
-              type promo est les offre blablabla lore type promo est les offre
-              blablabla lore
-            </p>
-          </div>
-        </div>
-        <div
-          class="border h-full flex bg-white gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
-        >
-          <div class="w-[8rem] h-[8rem]">
-            <img src="img/logo.png" class="w-full h-full object-contain" />
-          </div>
-          <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
-            <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
-              type promo est les offre blablabla lore type promo est les offre
-              blablabla lore
-            </p>
-          </div>
-        </div>
-        <div
-          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
-        >
-          <div class="w-[8rem] h-[8rem]">
-            <img src="img/logo.png" class="w-full h-full object-contain" />
-          </div>
-          <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
-            <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
-              type promo est les offre blablabla lore type promo est les offre
-              blablabla lore
-            </p>
-          </div>
-        </div>
-        <div
-          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
-        >
-          <div class="w-[8rem] h-[8rem]">
-            <img src="img/logo.png" class="w-full h-full object-contain" />
-          </div>
-          <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
-            <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
-              type promo est les offre blablabla lore type promo est les offre
-              blablabla lore
-            </p>
-          </div>
-        </div>
-        <div
-          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
-        >
-          <div class="w-[8rem] h-[8rem]">
-            <img src="img/logo.png" class="w-full h-full object-contain" />
-          </div>
-          <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
-            <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
-              type promo est les offre blablabla lore type promo est les offre
-              blablabla lore
-            </p>
-          </div>
-        </div>
-        <div
-          class="border h-full bg-white flex gap-2 pt-4 rounded-md drop-shadow-md hover:bg-slate-100 transition-all duration-500"
-        >
-          <div class="w-[8rem] h-[8rem]">
-            <img src="img/logo.png" class="w-full h-full object-contain" />
-          </div>
-          <div class="px-4">
-            <span class="font-semibold uppercase text-lg">Brand Name</span>
-            <p class="font-semibold text-sm text-gray-500 max-w-[15rem]">
-              type promo est les offre blablabla lore type promo est les offre
-              blablabla lore
-            </p>
-          </div>
-        </div>
+        </button>
+        <?php endforeach; ?>
       </div>
     </section>
     <footer class="bg-pink-400 w-full h-32 mt-10 text-white">
@@ -456,4 +352,7 @@
       </p>
     </footer>
   </body>
+  <script src="script.js" defer></script>
 </html>
+
+<?php $conn->close(); ?>
